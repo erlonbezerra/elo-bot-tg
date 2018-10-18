@@ -1,5 +1,5 @@
 ---
 applications:
-- name:    hello-node
+- name:    elo-bot-tg
   random-route: true
-  memory:  128M
+  memory:  64M
