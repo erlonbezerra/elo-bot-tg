@@ -3,7 +3,7 @@ var cfenv = require('cfenv');
 
 var tbot = require('node-telegram-bot-api');
 
-const TG_TOKEN = '783094697:AAGJ-YuBMI9_Qqkx0mHG86EC-Qx9sdhKUL4';
+const TG_TOKEN = process.env.TG_TOKEN;
 
 var app = express();
 var appEnv = cfenv.getAppEnv();
