@@ -1,6 +1,6 @@
 {
-  "name": "bluemix-hello-node",
-  "version": "0.0.0",
+  "name": "elo-bot-tg",
+  "version": "1.0.0",
   "dependencies": {
     "cf-deployment-tracker-client": "*",
     "cfenv": "^1.1.0",
@@ -16,6 +16,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/IBM-Bluemix/bluemix-hello-node.git"
+    "url": "https://github.com/erlonbezerra/elo-bot-tg"
+  },
+  "author": {
+    "name": "Erlon Bezerra"
   }
 }
