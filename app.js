@@ -1,12 +1,12 @@
 var express = require('express');
-var cfenv = require('cfenv');
 
 var tbot = require('node-telegram-bot-api');
 
 const TG_TOKEN = process.env.TG_TOKEN;
 
 var app = express();
-var appEnv = cfenv.getAppEnv();
+var port = process.env.PORT || 8080;
+app.set('port', port);
 
 var telegramBot = new tbot(TG_TOKEN, { polling: true });
 
@@ -27,6 +27,8 @@ telegramBot.onText(/\/echo (.+)/, (msg, match) => {
     telegramBot.sendMessage(chatId, resp);
 });
 
-app.listen(3000, 'localhost', function () {
-    console.log("server starting on " + appEnv.url);
+app.listen(port, () => {
+    console.log("server starting on " + app.get('port'));
 });
+
+require("cf-deployment-tracker-client").track();
