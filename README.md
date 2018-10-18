@@ -1,5 +1,3 @@
-bluemix-hello-node
-================================================================================
 
 A "Hello World" server in node.js sample for Bluemix.
 
@@ -360,3 +358,5 @@ started.
 `README.md`
 
 This file!
+=======
+# elo-bot-tg
