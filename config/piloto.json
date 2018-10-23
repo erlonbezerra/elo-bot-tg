@@ -1,0 +1,22 @@
+{
+    "logLevel" : "DEBUG",
+    "mongodb": {       
+        "user": "user_midia_social",
+        "password": "HMiD14_50ci4L_H",
+        "database": "bbMidiaSocialHomol",
+        "host": "172.20.118.175",
+        "port": "27017"      
+    }, 
+    "redis": {        
+        "host": "172.17.213.199",
+        "port": "6379"
+    },
+    "nia-ac": {
+        "baseUrl": "http://localhost:7070",
+        "path": "/dialog/wa"
+    },
+    "nia": {
+        "tipo": "BOT_MIDIAS_SOCIAIS_PILOTO_WK"
+    },
+    "whitelistEnabled": true
+}

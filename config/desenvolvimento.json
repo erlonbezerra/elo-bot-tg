@@ -1,0 +1,35 @@
+{
+    "whatsapp" : {
+        "baseUrl" : "https://bot.desenv.bb.com.br:8443",
+        "host" : "bot.desenv.bb.com.br",
+        "numberHost" : "+556181000927"
+    },
+    "baseUrl" : "https://bot.desenv.bb.com.br",
+    "nia-ac": {      
+        "baseUrl": "http://ac.desenv.bb.com.br",
+        "path": "/dialog/wa"
+    },
+    "api-grafeno": {      
+        "baseUrl": "http://172.20.244.54:8001",
+        "path": "/cfe-bbr/api/v1/mensagem/wa/envia-mensagem"
+    },
+    "mongodb": {       
+        "user": "user_midia_social",
+        "password": "MiD14_50ci4L",
+        "database": "bbMidiaSocialDev",
+        "host": "172.17.170.118",
+        "port": "27017"           
+    },    
+    "redis": {        
+        "user": "",
+        "password": "",
+        "host": "172.20.244.35",
+        "port": "6379",
+        "database" : {
+            "padrao": "10",
+            "contextoNia":"11",
+            "userControl":"12"
+        }
+    },
+    "whitelistEnabled": true
+}

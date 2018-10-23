@@ -1,34 +1,44 @@
-var express = require('express');
+// Include Telegraf module
+const Telegraf = require('telegraf');
+const config = require('config');
+const log = require('loglevel');
+const transactionManager = require('nia-transaction-manager');
+const { traduzirAC } = require('./modulos/tradutor');
+const ac = require('./modulos/ac/ac-manager');
 
-var TelegramBot = require('node-telegram-bot-api');
-
-const TG_TOKEN = process.env.TG_TOKEN;
-
-var app = express();
-var port = process.env.PORT || 8080;
-app.set('port', port);
-
-var bot = new TelegramBot(TG_TOKEN, { polling: true });
-
-bot.on('message', function (msg) {
-    var chatId = msg.chat.id;
-    bot.sendMessage(chatId, 'Received your message');
+transactionManager.init({
+  redisConfig: {
+    config: config.get('redis'),
+    dbNum: config.get('redis.database.padrao'),
+  },
 });
 
-bot.onText(/\/echo (.+)/, (msg, match) => {
-    // 'msg' is the received Message from Telegram
-    // 'match' is the result of executing the regexp above on the text content
-    // of the message
+// Create a bot using TOKEN provided as environment variable
+const bot = new Telegraf(process.env.TG_TOKEN);
+const { DEBUG } = process.env;
+const loglevel = process.env.LOG_LEVEL || (DEBUG ? 'DEBUG' : config.get('logLevel'));
+log.setDefaultLevel(loglevel);
 
-    const chatId = msg.chat.id;
-    const resp = match[1]; // the captured "whatever"
+// Listen on every text message, if message.text is one of the trigger,
+// send the reply
+bot.on('text', async (ctx) => {
+  log.debug(ctx.message.text);
+  log.debug(`${JSON.stringify(ctx.message)}`);
 
-    // send back the matched "whatever" to the chat
-    bot.sendMessage(chatId, resp);
+  const msg = await traduzirAC(ctx.message, '783094697');
+
+  log.debug(msg);
+  const corpusNia = config.get('nia.tipo');
+
+  const respostaAC = await ac.enviarAC(msg, corpusNia);
+
+  log.debug(JSON.stringify(respostaAC));
+  return respostaAC.forEach(element => ctx.reply(element.message.text));
+  // return ctx.reply(`Olá ${ctx.from.first_name}`);
 });
 
-app.listen(port, () => {
-    console.log("server starting on " + app.get('port'));
+bot.catch((err) => {
+  log.error(`${(new Date()).toUTCString()} ERRO => não tratado em:`, err);
 });
 
-require("cf-deployment-tracker-client").track();
+bot.startPolling();

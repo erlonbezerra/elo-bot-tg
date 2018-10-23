@@ -1,0 +1,30 @@
+{
+    "logLevel": "DEBUG",
+    "servidorAtivo": "BB",
+    "nia-ac": {
+        "baseUrl": "http://ac.bb.com.br",
+        "path": "/dialog/tg"
+    },
+    "mongodb": {
+        "user": "user_midia_social",
+        "password": "MiD14_50ci4L",
+        "database": "bbMidiaSocialDev",
+        "host": "172.17.170.118",
+        "port": "27017"
+    },
+    "redis": {
+        "user": "",
+        "password": "",
+        "host": "172.20.244.35",
+        "port": "6379",
+        "database": {
+            "padrao": "10",
+            "contextoNia": "11",
+            "userControl": "12"
+        }
+    },
+    "nia": {
+        "tipo": "BOT_OPENBANK_TSTJOEL"
+    },
+    "whitelistEnabled": true
+}

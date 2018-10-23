@@ -1,0 +1,22 @@
+{
+    "logLevel" : "INFO",
+    "mongodb": {       
+        "user": "user_midia_social",
+        "password": "HMiD14_50ci4L_H",
+        "database": "bbMidiaSocialHomol",
+        "host": "172.20.118.175",
+        "port": "27017"      
+    }, 
+    "redis": {        
+        "user": "",
+        "password": "",
+        "host": "redis.bot.hm.bb.com.br",
+        "port": "6379",
+        "database" : {
+            "padrao": "10",
+            "contextoNia":"11",
+            "userControl":"12"
+        }
+    },
+    "whitelistEnabled": true
+}

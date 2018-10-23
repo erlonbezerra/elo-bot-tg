@@ -1,0 +1,22 @@
+{
+    "logLevel" : "INFO",
+    "mongodb": {       
+        "user": "user_bbmedias",
+        "password": "B8M3di4s",
+        "database": "dbBBMedias",
+        "host": "172.17.61.176",
+        "port": "27017"      
+    },
+    "redis": {       
+        "host": "redis.bot.bb.com.br",
+        "port": "6379"
+    },
+    "nia-ac": {
+        "baseUrl": "https://ac.bb.com.br",
+        "path": "/dialog/wa"
+    },
+    "nia": {
+        "tipo": "BOT_MIDIAS_SOCIAIS_WK"
+    },
+    "whitelistEnabled": true
+}
