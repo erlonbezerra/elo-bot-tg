@@ -5,7 +5,7 @@
     "cf-deployment-tracker-client": "*",
     "cfenv": "^1.1.0",
     "commander": "^2.6.0",
-    "config": "^2.0.1",
+    "config": "^3.3.1",
     "express": "^4.14.1",
     "http-post": "^0.1.1",
     "http-proxy": "^1.8.1",
